@@ -1,0 +1,42 @@
+Bertindaklah sebagai Guru Bahasa Inggris SD Kelas 6 yang berpengalaman. Buatkan lembar kerja siswa (Worksheet) Bahasa Inggris topik "Simple Past Tense" yang SIAP CETAK (Printable) dengan kombinasi Crossword (Teka-Teki Silang) 9x9, Menjodohkan, dan Isian Singkat.
+
+Spesifikasi Worksheet:
+- Mata Pelajaran: English (Bahasa Inggris)
+- Topik: Simple Past Tense (Regular & Irregular Verbs)
+- Format Soal: Crossword 9x9, Menjodohkan, & Isian Singkat
+- Alokasi Waktu: 45 Menit
+- Tingkat Kesulitan: SD Kelas 6
+
+Struktur Worksheet yang Harus Dibuat:
+
+1. KOP / HEADER WORKSHEET (Printable Format):
+   - School Name: .......................
+   - Student's Name: .......................
+   - Class / Semester: VI / .......
+   - Date: .......................
+   - Title: "ENGLISH WORKSHEET: SIMPLE PAST TENSE FUN"
+   - Petunjuk pengerjaan.
+
+2. BRIEF GRAMMAR BOX:
+   - Kotak pengingat singkat rumus Simple Past Tense (Subject + Verb 2).
+
+3. BAGIAN SOAL / EXERCISES:
+   - Part A: Crossword Puzzle 9x9 (Teka-Teki Silang)
+     * Buatkan kisi-kisi/grid teks Crossword ukuran 9x9 yang presisi dan rapi.
+     * Petunjuk Across (Mendatar) dan Down (Menurun) berisi kata kerja V1 (Base Form) dari Regular & Irregular Verbs. Siswa diminta mengisi bentuk V2 (Past Form) di dalam kotak grid.
+     * Sertakan 6-8 kata (misal: GO -> WENT, PLAY -> PLAYED, EAT -> ATE, VISIT -> VISITED, SEE -> SAW, WATCH -> WATCHED).
+   
+   - Part B: Menjodohkan / Matching (5 Nomor)
+     * Jodohkan kata kerja V1 di Kolom A dengan V2 di Kolom B, atau menjodohkan Time Expressions (contoh: "Yesterday" = "Kemarin").
+     * Tampilan dua kolom rapi dengan baris titik-titik untuk menuliskan pasangan hurufnya.
+
+   - Part C: Isian Singkat / Fill in the Blanks (5 Nomor)
+     * Melengkapi kalimat rumpang dengan mengubah kata kerja dalam kurung menjadi V2 yang tepat.
+
+4. FORMATTING FOR PRINT:
+   - Grid Crossword digambar rapi menggunakan karakter teks/tabel agar tidak berantakan saat dicetak.
+   - Sediakan tempat jawaban berupa garis titik-titik (..................).
+   - Atur agar muat pas dalam 2 halaman A4.
+
+5. KUNCI JAWABAN & PEDOMAN PENSKORAN:
+   - Sertakan Kunci Jawaban lengkap untuk Crossword, Menjodohkan, dan Isian Singkat beserta rumus nilai akhir.
