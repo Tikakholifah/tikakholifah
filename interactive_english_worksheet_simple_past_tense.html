@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Worksheet: Simple Past Tense Fun</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Print Specific Styles */
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+            body {
+                background: white !important;
+                color: black !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+            .page-break {
+                page-break-before: always;
+            }
+            .sheet-card {
+                box-shadow: none !important;
+                border: none !important;
+                padding: 0 !important;
+                max-width: 100% !important;
+            }
+            input {
+                border-bottom: 1px solid #000 !important;
+                background: transparent !important;
+            }
+            .crossword-cell {
+                border: 1px solid #000 !important;
+                background-color: #fff !important;
+            }
+            .crossword-cell.blocked {
+                background-color: #333 !important;
+            }
+        }
+
+        /* Crossword Specific Grid Styles */
+        .crossword-grid {
+            display: grid;
+            grid-template-columns: repeat(9, minmax(0, 1fr));
+            gap: 2px;
+            background-color: #1e293b;
+            padding: 2px;
+            border-radius: 6px;
+            max-width: 360px;
+            margin: 0 auto;
+        }
+
+        .crossword-cell {
+            aspect-ratio: 1;
+            position: relative;
+            background-color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .crossword-cell.blocked {
+            background-color: #334155;
+        }
+
+        .cell-number {
+            position: absolute;
+            top: 2px;
+            left: 3px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            color: #475569;
+            pointer-events: none;
+        }
+
+        .crossword-cell input {
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            outline: none;
+            background: transparent;
+        }
+    </style>
+</head>
+<body class="bg-slate-100 text-slate-800 p-4 md:p-8 min-h-screen">
+
+    <!-- Action Bar / Control Panel (Hidden on Print) -->
+    <div class="max-w-4xl mx-auto mb-6 no-print flex flex-wrap gap-4 items-center justify-between bg-white p-4 rounded-xl shadow-md border border-slate-200">
+        <div>
+            <h1 class="text-xl font-bold text-slate-800">English Worksheet Generator & Interactive Mode</h1>
+            <p class="text-xs text-slate-500">Grade 6 - Simple Past Tense</p>
+        </div>
+        <div class="flex flex-wrap gap-2">
+            <button onclick="checkAnswers()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                Check Answers
+            </button>
+            <button onclick="resetForm()" class="bg-slate-200 hover:bg-slate-300 text-slate-700 px-4 py-2 rounded-lg text-sm font-semibold transition">
+                Reset
+            </button>
+            <button onclick="window.print()" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+                </svg>
+                Print Worksheet
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Printable Worksheet Container -->
+    <main class="max-w-4xl mx-auto bg-white p-6 md:p-10 rounded-2xl shadow-lg border border-slate-200 sheet-card">
+        
+        <!-- HEADER / KOP WORKSHEET -->
+        <header class="border-b-2 border-slate-800 pb-4 mb-6">
+            <div class="text-center mb-6">
+                <h2 class="text-2xl font-black tracking-wide uppercase text-slate-900">ENGLISH WORKSHEET: SIMPLE PAST TENSE FUN</h2>
+                <p class="text-sm font-semibold text-slate-600">Primary School - Grade VI / Semester 1</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm font-medium text-slate-700">
+                <div class="flex items-center gap-2">
+                    <span class="w-28 font-bold">School Name</span>:
+                    <input type="text" class="flex-1 border-b border-slate-400 focus:border-indigo-600 outline-none px-1" placeholder="....................................................">
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="w-28 font-bold">Class / Sem</span>:
+                    <input type="text" value="VI / 1" class="flex-1 border-b border-slate-400 focus:border-indigo-600 outline-none px-1">
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="w-28 font-bold">Student's Name</span>:
+                    <input type="text" class="flex-1 border-b border-slate-400 focus:border-indigo-600 outline-none px-1" placeholder="....................................................">
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="w-28 font-bold">Date / Time</span>:
+                    <input type="text" class="flex-1 border-b border-slate-400 focus:border-indigo-600 outline-none px-1" placeholder=".................... / 45 Mins">
+                </div>
+            </div>
+        </header>
+
+        <!-- GENERAL INSTRUCTIONS -->
+        <section class="bg-slate-50 p-4 rounded-xl border border-slate-200 mb-6 text-xs sm:text-sm text-slate-700 space-y-1">
+            <h3 class="font-bold text-slate-900 mb-1 flex items-center gap-1">
+                📌 GENERAL INSTRUCTIONS (Petunjuk Pengerjaan):
+            </h3>
+            <ol class="list-decimal list-inside space-y-0.5">
+                <li>Write your name, class, and date on the space provided above.</li>
+                <li>Read the brief grammar box carefully before answering the questions.</li>
+                <li>Complete Part A (Crossword Puzzle), Part B (Matching), and Part C (Fill in the Blanks).</li>
+                <li>Check your answers thoroughly before submitting!</li>
+            </ol>
+        </section>
+
+        <!-- GRAMMAR BOX -->
+        <section class="bg-indigo-50 border-2 border-indigo-200 rounded-xl p-4 mb-8">
+            <h3 class="font-bold text-indigo-900 text-sm sm:text-base flex items-center gap-2 mb-2">
+                💡 BRIEF GRAMMAR BOX: SIMPLE PAST TENSE
+            </h3>
+            <p class="text-xs sm:text-sm text-indigo-950 mb-3">
+                Used to talk about actions that happened and finished in the past. 
+                <span class="font-bold underline">Formula: Subject + Verb 2 + Complement</span>
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
+                <div class="bg-white p-3 rounded-lg border border-indigo-100 shadow-sm">
+                    <span class="font-bold text-indigo-800 block mb-1">1. Regular Verbs (+ed / +d):</span>
+                    <ul class="list-disc list-inside space-y-0.5 text-slate-700">
+                        <li>Play &rarr; <span class="font-semibold text-indigo-700">Played</span></li>
+                        <li>Visit &rarr; <span class="font-semibold text-indigo-700">Visited</span></li>
+                        <li>Watch &rarr; <span class="font-semibold text-indigo-700">Watched</span></li>
+                    </ul>
+                </div>
+                <div class="bg-white p-3 rounded-lg border border-indigo-100 shadow-sm">
+                    <span class="font-bold text-indigo-800 block mb-1">2. Irregular Verbs (Change Form):</span>
+                    <ul class="list-disc list-inside space-y-0.5 text-slate-700">
+                        <li>Go &rarr; <span class="font-semibold text-indigo-700">Went</span></li>
+                        <li>Eat &rarr; <span class="font-semibold text-indigo-700">Ate</span> | See &rarr; <span class="font-semibold text-indigo-700">Saw</span></li>
+                        <li>Buy &rarr; <span class="font-semibold text-indigo-700">Bought</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-3 text-xs text-indigo-900 font-medium">
+                ⏱️ <span class="font-bold">Time Signals:</span> Yesterday, Last night, Last week, Two days ago.
+            </div>
+        </section>
+
+        <!-- PART A: CROSSWORD -->
+        <section class="mb-8">
+            <h3 class="font-bold text-lg text-slate-900 border-b border-slate-300 pb-2 mb-4">
+                PART A: CROSSWORD PUZZLE 9x9 (35 Points)
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-600 mb-4">
+                Change the verbs in the clues (Verb 1) into <strong>Verb 2 (Past Form)</strong> and fill in the 9x9 grid below!
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+                <!-- Grid -->
+                <div>
+                    <div id="crossword" class="crossword-grid shadow-md"></div>
+                </div>
+
+                <!-- Clues -->
+                <div class="space-y-4 text-xs sm:text-sm">
+                    <div class="bg-slate-50 p-3 rounded-lg border border-slate-200">
+                        <h4 class="font-bold text-slate-800 border-b border-slate-200 pb-1 mb-2">ACROSS (Mendatar):</h4>
+                        <ol class="space-y-1.5 text-slate-700">
+                            <li><strong>1-Across (Row 2):</strong> Past tense of <strong>GO</strong> (4 letters)</li>
+                            <li><strong>4-Across (Row 4):</strong> Past tense of <strong>VISIT</strong> (7 letters)</li>
+                            <li><strong>5-Across (Row 6):</strong> Past tense of <strong>SEE</strong> (3 letters)</li>
+                            <li><strong>6-Across (Row 8):</strong> Past tense of <strong>WATCH</strong> (7 letters)</li>
+                        </ol>
+                    </div>
+
+                    <div class="bg-slate-50 p-3 rounded-lg border border-slate-200">
+                        <h4 class="font-bold text-slate-800 border-b border-slate-200 pb-1 mb-2">DOWN (Menurun):</h4>
+                        <ol class="space-y-1.5 text-slate-700">
+                            <li><strong>2-Down (Row 2, Col 3):</strong> Past tense of <strong>EAT</strong> (3 letters)</li>
+                            <li><strong>3-Down (Row 2, Col 7):</strong> Past tense of <strong>PLAY</strong> (6 letters)</li>
+                            <li><strong>5-Down (Row 6, Col 4):</strong> Past tense of <strong>BUY</strong> (6 letters)</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PART B: MATCHING -->
+        <section class="mb-8">
+            <h3 class="font-bold text-lg text-slate-900 border-b border-slate-300 pb-2 mb-4">
+                PART B: MATCHING (25 Points)
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-600 mb-4">
+                Match the words in <strong>Column A</strong> with their correct pairs in <strong>Column B</strong>! Write the option letter (A-E) inside the parentheses.
+            </p>
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-xs sm:text-sm border-collapse">
+                    <thead>
+                        <tr class="bg-slate-100 text-slate-700 border-y border-slate-300">
+                            <th class="py-2 px-3 text-left w-12">No</th>
+                            <th class="py-2 px-3 text-left">Column A</th>
+                            <th class="py-2 px-3 text-center w-28">Answer</th>
+                            <th class="py-2 px-3 text-left">Column B</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-200 text-slate-800">
+                        <tr>
+                            <td class="py-3 px-3 font-bold">1.</td>
+                            <td class="py-3 px-3">Yesterday</td>
+                            <td class="py-3 px-3 text-center">
+                                ( <input type="text" id="match1" maxlength="1" class="w-8 text-center uppercase font-bold border-b-2 border-slate-400 focus:border-indigo-600 outline-none"> )
+                            </td>
+                            <td class="py-3 px-3 font-semibold">A. Swam</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 px-3 font-bold">2.</td>
+                            <td class="py-3 px-3">Drink</td>
+                            <td class="py-3 px-3 text-center">
+                                ( <input type="text" id="match2" maxlength="1" class="w-8 text-center uppercase font-bold border-b-2 border-slate-400 focus:border-indigo-600 outline-none"> )
+                            </td>
+                            <td class="py-3 px-3 font-semibold">B. Minggu lalu</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 px-3 font-bold">3.</td>
+                            <td class="py-3 px-3">Swim</td>
+                            <td class="py-3 px-3 text-center">
+                                ( <input type="text" id="match3" maxlength="1" class="w-8 text-center uppercase font-bold border-b-2 border-slate-400 focus:border-indigo-600 outline-none"> )
+                            </td>
+                            <td class="py-3 px-3 font-semibold">C. Kemarin</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 px-3 font-bold">4.</td>
+                            <td class="py-3 px-3">Last week</td>
+                            <td class="py-3 px-3 text-center">
+                                ( <input type="text" id="match4" maxlength="1" class="w-8 text-center uppercase font-bold border-b-2 border-slate-400 focus:border-indigo-600 outline-none"> )
+                            </td>
+                            <td class="py-3 px-3 font-semibold">D. Drank</td>
+                        </tr>
+                        <tr>
+                            <td class="py-3 px-3 font-bold">5.</td>
+                            <td class="py-3 px-3">Write</td>
+                            <td class="py-3 px-3 text-center">
+                                ( <input type="text" id="match5" maxlength="1" class="w-8 text-center uppercase font-bold border-b-2 border-slate-400 focus:border-indigo-600 outline-none"> )
+                            </td>
+                            <td class="py-3 px-3 font-semibold">E. Wrote</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- PART C: FILL IN THE BLANKS -->
+        <section class="mb-8">
+            <h3 class="font-bold text-lg text-slate-900 border-b border-slate-300 pb-2 mb-4">
+                PART C: FILL IN THE BLANKS (40 Points)
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-600 mb-4">
+                Complete the sentences using the correct <strong>Verb 2 (Simple Past Tense)</strong> form of the verb in brackets!
+            </p>
+
+            <ol class="list-decimal list-inside space-y-4 text-xs sm:text-sm text-slate-800 font-medium">
+                <li class="leading-relaxed">
+                    My family and I 
+                    <input type="text" id="fill1" class="border-b-2 border-slate-400 px-2 py-0.5 w-32 sm:w-40 text-center font-bold text-indigo-700 outline-none focus:border-indigo-600"> 
+                    (go) to Bali last holiday.
+                </li>
+                <li class="leading-relaxed">
+                    She 
+                    <input type="text" id="fill2" class="border-b-2 border-slate-400 px-2 py-0.5 w-32 sm:w-40 text-center font-bold text-indigo-700 outline-none focus:border-indigo-600"> 
+                    (cook) fried rice for dinner yesterday night.
+                </li>
+                <li class="leading-relaxed">
+                    Doni 
+                    <input type="text" id="fill3" class="border-b-2 border-slate-400 px-2 py-0.5 w-32 sm:w-40 text-center font-bold text-indigo-700 outline-none focus:border-indigo-600"> 
+                    (buy) a new toy bicycle two days ago.
+                </li>
+                <li class="leading-relaxed">
+                    They 
+                    <input type="text" id="fill4" class="border-b-2 border-slate-400 px-2 py-0.5 w-32 sm:w-40 text-center font-bold text-indigo-700 outline-none focus:border-indigo-600"> 
+                    (play) football in the school yard yesterday afternoon.
+                </li>
+                <li class="leading-relaxed">
+                    I 
+                    <input type="text" id="fill5" class="border-b-2 border-slate-400 px-2 py-0.5 w-32 sm:w-40 text-center font-bold text-indigo-700 outline-none focus:border-indigo-600"> 
+                    (write) a letter to my grandmother last Sunday.
+                </li>
+            </ol>
+        </section>
+
+        <!-- RESULT MODAL / SCORE DISPLAY (Interactive Only) -->
+        <div id="resultBox" class="hidden no-print mt-6 p-4 bg-slate-900 text-white rounded-xl flex items-center justify-between">
+            <div>
+                <h4 class="font-bold text-base">Your Assessment Result:</h4>
+                <p id="scoreText" class="text-2xl font-black text-emerald-400">Score: 0 / 100</p>
+            </div>
+            <div id="feedbackBadge" class="px-3 py-1 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-lg text-sm font-semibold">
+                -
+            </div>
+        </div>
+
+        <!-- ANSWER KEY & SCORING RUBRIC (Visible on Print or when requested) -->
+        <footer class="mt-12 pt-6 border-t-2 border-slate-300 page-break">
+            <h3 class="font-bold text-base text-slate-800 uppercase tracking-wide mb-3">TEACHER'S SCORING RUBRIC & ANSWER KEYS</h3>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+                <div class="border border-slate-200 p-3 rounded-lg bg-slate-50">
+                    <span class="font-bold text-slate-800 block mb-1">Answer Keys:</span>
+                    <p><strong>Part A:</strong> 1-Across: WENT | 4-Across: VISITED | 5-Across: SAW | 6-Across: WATCHED | 2-Down: ATE | 3-Down: PLAYED | 5-Down: BOUGHT</p>
+                    <p class="mt-1"><strong>Part B:</strong> 1. C | 2. D | 3. A | 4. B | 5. E</p>
+                    <p class="mt-1"><strong>Part C:</strong> 1. went | 2. cooked | 3. bought | 4. played | 5. wrote</p>
+                </div>
+                <div class="border border-slate-200 p-3 rounded-lg bg-slate-50">
+                    <span class="font-bold text-slate-800 block mb-1">Scoring Formula:</span>
+                    <ul class="space-y-0.5">
+                        <li>Part A (Crossword): 7 Words x 5 Pts = 35 Pts</li>
+                        <li>Part B (Matching): 5 Items x 5 Pts = 25 Pts</li>
+                        <li>Part C (Fill Blanks): 5 Items x 8 Pts = 40 Pts</li>
+                        <li class="font-bold text-indigo-700 pt-1 border-t border-slate-200">Total Maximum Score = 100 Points</li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- SCRIPT LOGIC FOR CROSSWORD & INTERACTIVE QUIZ -->
+    <script>
+        // 9x9 Crossword Grid Definition (Row x Col 0-indexed)
+        // Correct characters definition
+        const gridAnswers = [
+            ['#', '#', '#', '#', '#', '#', '#', '#', '#'], // R0
+            ['W', 'E', 'N', 'T', '#', '#', 'P', '#', '#'], // R1 (1-Across: WENT, 3-Down: PLAYED starts at col 6)
+            ['#', '#', 'A', '#', '#', '#', 'L', '#', '#'], // R2 (2-Down: ATE at col 2)
+            ['V', 'I', 'S', 'I', 'T', 'E', 'D', '#', '#'], // R3 (4-Across: VISITED)
+            ['#', '#', '#', '#', '#', '#', 'E', '#', '#'], // R4
+            ['#', '#', '#', 'S', 'A', 'W', 'D', '#', '#'], // R5 (5-Across: SAW at col 3, 5-Down: BOUGHT starts col 3)
+            ['#', '#', '#', 'O', '#', '#', '#', '#', '#'], // R6
+            ['#', 'W', 'A', 'T', 'C', 'H', 'E', 'D', '#'], // R7 (6-Across: WATCHED)
+            ['#', '#', '#', 'U', '#', '#', '#', '#', '#']  // R8
+        ];
+
+        // Numbers overlay
+        const gridNumbers = {
+            "1,0": "1", // WENT
+            "1,2": "2", // ATE
+            "1,6": "3", // PLAYED
+            "3,0": "4", // VISITED
+            "5,3": "5", // SAW & BOUGHT
+            "7,1": "6"  // WATCHED
+        };
+
+        // Render Crossword Grid dynamically
+        const crosswordContainer = document.getElementById('crossword');
+
+        for (let r = 0; r < 9; r++) {
+            for (let c = 0; c < 9; c++) {
+                const cellVal = gridAnswers[r][c];
+                const cellDiv = document.createElement('div');
+                cellDiv.className = 'crossword-cell';
+
+                if (cellVal === '#') {
+                    cellDiv.classList.add('blocked');
+                } else {
+                    // Check if cell needs a number label
+                    const key = `${r},${c}`;
+                    if (gridNumbers[key]) {
+                        const numSpan = document.createElement('span');
+                        numSpan.className = 'cell-number';
+                        numSpan.textContent = gridNumbers[key];
+                        cellDiv.appendChild(numSpan);
+                    }
+
+                    const input = document.createElement('input');
+                    input.type = 'text';
+                    input.maxLength = 1;
+                    input.dataset.row = r;
+                    input.dataset.col = c;
+                    input.id = `cell-${r}-${c}`;
+                    
+                    // Auto-advance input typing
+                    input.addEventListener('input', (e) => {
+                        const val = e.target.value.toUpperCase();
+                        e.target.value = val;
+                        if (val.length === 1) {
+                            // Find next available cell to the right or down
+                            const nextColInput = document.getElementById(`cell-${r}-${c + 1}`);
+                            if (nextColInput) {
+                                nextColInput.focus();
+                            }
+                        }
+                    });
+
+                    cellDiv.appendChild(input);
+                }
+
+                crosswordContainer.appendChild(cellDiv);
+            }
+        }
+
+        // Answer Validation Logic
+        function checkAnswers() {
+            let totalScore = 0;
+
+            // 1. Check Part A (Crossword) - 35 Points Max
+            let crosswordCorrect = true;
+            let crosswordWordsCorrect = 0;
+
+            const words = [
+                { name: "WENT", cells: [[1,0],[1,1],[1,2],[1,3]] },
+                { name: "VISITED", cells: [[3,0],[3,1],[3,2],[3,3],[3,4],[3,5],[3,6]] },
+                { name: "SAW", cells: [[5,3],[5,4],[5,5]] },
+                { name: "WATCHED", cells: [[7,1],[7,2],[7,3],[7,4],[7,5],[7,6],[7,7]] },
+                { name: "ATE", cells: [[1,2],[2,2],[3,2]] },
+                { name: "PLAYED", cells: [[1,6],[2,6],[3,6],[4,6],[5,6]] },
+                { name: "BOUGHT", cells: [[5,3],[6,3],[7,3],[8,3]] } // simplified check
+            ];
+
+            // Direct character validation
+            words.forEach(w => {
+                let wordValid = true;
+                w.cells.forEach(([r, c]) => {
+                    const input = document.getElementById(`cell-${r}-${c}`);
+                    if (!input || input.value.toUpperCase() !== gridAnswers[r][c]) {
+                        wordValid = false;
+                    }
+                });
+                if (wordValid) crosswordWordsCorrect++;
+            });
+
+            totalScore += crosswordWordsCorrect * 5; // 7 words * 5 = 35
+
+            // 2. Check Part B (Matching) - 25 Points Max
+            const matchAnswers = { match1: 'C', match2: 'D', match3: 'A', match4: 'B', match5: 'E' };
+            let matchScore = 0;
+            for (let i = 1; i <= 5; i++) {
+                const input = document.getElementById(`match${i}`);
+                if (input && input.value.toUpperCase().trim() === matchAnswers[`match${i}`]) {
+                    matchScore += 5;
+                    input.classList.remove('border-red-500', 'text-red-600');
+                    input.classList.add('border-emerald-500', 'text-emerald-600');
+                } else if (input) {
+                    input.classList.remove('border-emerald-500', 'text-emerald-600');
+                    input.classList.add('border-red-500', 'text-red-600');
+                }
+            }
+            totalScore += matchScore;
+
+            // 3. Check Part C (Fill in the blanks) - 40 Points Max
+            const fillAnswers = { fill1: 'went', fill2: 'cooked', fill3: 'bought', fill4: 'played', fill5: 'wrote' };
+            let fillScore = 0;
+            for (let i = 1; i <= 5; i++) {
+                const input = document.getElementById(`fill${i}`);
+                if (input && input.value.toLowerCase().trim() === fillAnswers[`fill${i}`]) {
+                    fillScore += 8;
+                    input.classList.remove('border-red-500', 'text-red-600');
+                    input.classList.add('border-emerald-500', 'text-emerald-600');
+                } else if (input) {
+                    input.classList.remove('border-emerald-500', 'text-emerald-600');
+                    input.classList.add('border-red-500', 'text-red-600');
+                }
+            }
+            totalScore += fillScore;
+
+            // Display Results
+            const resultBox = document.getElementById('resultBox');
+            const scoreText = document.getElementById('scoreText');
+            const feedbackBadge = document.getElementById('feedbackBadge');
+
+            resultBox.classList.remove('hidden');
+            scoreText.textContent = `Score: ${totalScore} / 100`;
+
+            if (totalScore >= 85) {
+                feedbackBadge.textContent = "Excellent! Outstanding Work 🎉";
+                feedbackBadge.className = "px-3 py-1 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 rounded-lg text-sm font-semibold";
+            } else if (totalScore >= 70) {
+                feedbackBadge.textContent = "Good Job! Keep practicing 👍";
+                feedbackBadge.className = "px-3 py-1 bg-amber-500/20 text-amber-300 border border-amber-500/30 rounded-lg text-sm font-semibold";
+            } else {
+                feedbackBadge.textContent = "Needs Improvement! Review the grammar box 📚";
+                feedbackBadge.className = "px-3 py-1 bg-rose-500/20 text-rose-300 border border-rose-500/30 rounded-lg text-sm font-semibold";
+            }
+        }
+
+        // Reset Inputs
+        function resetForm() {
+            document.querySelectorAll('input[type="text"]').forEach(input => {
+                input.value = '';
+                input.classList.remove('border-red-500', 'text-red-600', 'border-emerald-500', 'text-emerald-600');
+            });
+            document.getElementById('resultBox').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
